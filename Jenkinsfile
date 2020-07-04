@@ -41,11 +41,11 @@ pipeline{
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
-                   channel: '#jenkins-pipeline-demo',
+                   channel: '#project-devops',
                    color: 'danger', 
                    message: 'SonarQube Analysis Failed', 
-                   teamDomain: 'DevopsDomain',
-                   tokenCredentialId: 'slack-demo'
+                   teamDomain: 'd-o.io',
+                   tokenCredentialId: 'slack'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
           }
@@ -60,12 +60,11 @@ pipeline{
    */
    
    stage('Slack Notification'){
-       slackSend baseUrl: 'https://hooks.slack.com/services/',
-       channel: '#jenkins-pipeline',
+       slackSend channel: '#project-devops', 
        color: 'good', 
-       message: 'Welcome to Jenkins, Slack!', 
-       teamDomain: 'Devops',
-       tokenCredentialId: 'slack-ID'
+       message: 'Hi Your Sonar Was Successful',
+       teamDomain: 'd-o.io', 
+       tokenCredentialId: 'slack'
    
 }
 }
