@@ -9,7 +9,7 @@ pipeline{
       steps{
             echo "SCM Checkout Started"
 	        script{
-		            git 'https://github.com/sudharsansadasivam/my-app-2'
+		            git 'https://github.com/sudharsansadasivam/my-app-3'
 	            }
             echo "SCM Checkout Completed"
       }
@@ -18,7 +18,6 @@ pipeline{
       steps{
          script{
 	 sh "mvn -version"
-         sh "mvn clean install"
          sh "mvn package"
 	 echo "Compile Stage Passed"
 	 }
