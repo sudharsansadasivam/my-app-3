@@ -65,6 +65,6 @@ pipeline{
        message: 'Hi Your Sonar Was Successful',
        teamDomain: 'd-o.io', 
        tokenCredentialId: 'slack'
-   
+   }
 }
 }
