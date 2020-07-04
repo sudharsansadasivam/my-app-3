@@ -67,7 +67,6 @@ pipeline{
 	   script{
 	
        slackSend channel: '#project-devops', 
-       color: 'good', 
        message: 'Hi Your Sonar Was Successful'
 	   }
 	   }
