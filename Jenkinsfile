@@ -68,9 +68,7 @@ pipeline{
 	
        slackSend channel: '#project-devops', 
        color: 'good', 
-       message: 'Hi Your Sonar Was Successful',
-       teamDomain: 'd-o.io', 
-       tokenCredentialId: 'slack'
+       message: 'Hi Your Sonar Was Successful'
 	   }
 	   }
    }
