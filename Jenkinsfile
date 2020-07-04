@@ -35,7 +35,7 @@ pipeline{
         }
         }
     }
-     
+   /*
   stage("Quality Gate Statuc Check"){
 	  steps{
           timeout(time: 1, unit: 'HOURS') {
@@ -54,7 +54,7 @@ pipeline{
 	  }
           }
       }    
-   
+   */
   /* 
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
