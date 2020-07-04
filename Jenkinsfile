@@ -39,6 +39,7 @@ pipeline{
 	  steps{
           timeout(time: 1, unit: 'HOURS') {
 		  script{
+			  sleep (180)
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
