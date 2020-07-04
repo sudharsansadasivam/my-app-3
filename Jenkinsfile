@@ -34,7 +34,7 @@ pipeline{
         }
         }
     }
-   /*
+   
   stage("Quality Gate Statuc Check"){
 	  steps{
           timeout(time: 1, unit: 'HOURS') {
@@ -42,18 +42,18 @@ pipeline{
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
-                   channel: '#project-devops',
+                   channel: '#testchannel',
                    color: 'danger', 
                    message: 'SonarQube Analysis Failed', 
-                   teamDomain: 'd-o.io',
-                   tokenCredentialId: 'slack'
+                   teamDomain: 'venkatalakshmirajan',
+                   tokenCredentialId: 'slack_token'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
 		  }
 	  }
           }
       }    
-   */
+   
   /* 
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
