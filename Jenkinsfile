@@ -37,7 +37,9 @@ pipeline{
     }
      
   stage("Quality Gate Statuc Check"){
+	  steps{
           timeout(time: 1, unit: 'HOURS') {
+		  script{
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
@@ -48,6 +50,8 @@ pipeline{
                    tokenCredentialId: 'slack'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
+		  }
+	  }
           }
       }    
    
@@ -60,11 +64,15 @@ pipeline{
    */
    
    stage('Slack Notification'){
+	   steps{
+	   script{
        slackSend channel: '#project-devops', 
        color: 'good', 
        message: 'Hi Your Sonar Was Successful',
        teamDomain: 'd-o.io', 
        tokenCredentialId: 'slack'
+	   }
+	   }
    }
 }
 }
