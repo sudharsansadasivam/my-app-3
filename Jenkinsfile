@@ -49,6 +49,15 @@ pipeline{
                    tokenCredentialId: 'slack_token'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
+		if (qg.status != 'FAILURE') {
+                   slackSend baseUrl: 'https://hooks.slack.com/services/',
+                   channel: '#testchannel',
+                   color: 'good', 
+                   message: 'SonarQube Analysis Success', 
+                   teamDomain: 'venkatalakshmirajan',
+                   tokenCredentialId: 'slack_token'
+                  
+              }
 		  }
 	  }
           }
