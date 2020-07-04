@@ -66,8 +66,7 @@ pipeline{
 	   steps{
 	   script{
 	
-       slackSend baseUrl: 'https://hooks.slack.com/services/',
-	channel: '#project-devops', 
+       slackSend channel: '#project-devops', 
        color: 'good', 
        message: 'Hi Your Sonar Was Successful',
        teamDomain: 'd-o.io', 
