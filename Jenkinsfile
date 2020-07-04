@@ -39,24 +39,18 @@ pipeline{
 	  steps{
           timeout(time: 1, unit: 'HOURS') {
 		  script{
-			  sleep (180)
+			  sleep (120)
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
-                   slackSend baseUrl: 'https://hooks.slack.com/services/',
-                   channel: '#testchannel',
+                   slackSend channel: '#testchannel',
                    color: 'danger', 
-                   message: 'SonarQube Analysis Failed', 
-                   teamDomain: 'venkatalakshmirajan',
-                   tokenCredentialId: 'slack_token'
+                   message: 'SonarQube Analysis Failed' 
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
 		if (qg.status != 'FAILURE') {
-                   slackSend baseUrl: 'https://hooks.slack.com/services/',
-                   channel: '#testchannel',
+                   slackSend channel: '#testchannel',
                    color: 'good', 
-                   message: 'SonarQube Analysis Success', 
-                   teamDomain: 'venkatalakshmirajan',
-                   tokenCredentialId: 'slack_token'
+                   message: 'SonarQube Analysis Success'
                   
               }
 		  }
